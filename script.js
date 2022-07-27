@@ -19,7 +19,7 @@ function gameLoop(time) {
 
 // this will scroll
 function update() {
-    console.log(x);
+    console.log(x + ' (x position)');
     x -= 2;
     if(x <= (0 - imgA.width)) {
         x = 0;
@@ -34,10 +34,12 @@ function update() {
 
 
 // define images from html (already loaded before JS runs)
-let imgA = document.getElementById('imgA');
-let imgB = document.getElementById('imgB');
+let imgA = document.getElementById('imgD');
+let imgB = document.getElementById('imgE');
 let imgC = document.getElementById('imgC');
 let imgD = document.getElementById('imgD');
+let imgE = document.getElementById('imgE');
+let imgF = document.getElementById('imgF');
 
 
 
@@ -45,24 +47,25 @@ let imgD = document.getElementById('imgD');
 function draw(context) {
     clear();
     // to repeat, reset the x (in the update)
+
     context.drawImage(imgA, x, y);
     context.drawImage(imgA, x+(imgA.width), y);
 
 
     context.drawImage(imgB, x+x, y);
-    context.drawImage(imgB, x+(imgB.width), y);
+    context.drawImage(imgB, x+(imgB.width)+x, y);
 
-    context.drawImage(imgC, x+x+x, y);
-    context.drawImage(imgC, x+(imgC.width), y);
+    // context.drawImage(imgC, x+x+x, y);
+    // context.drawImage(imgC, x+(imgC.width)+x+x, y);
 
-    context.drawImage(imgD, x+x+x+x, y);
-    context.drawImage(imgD, x+(imgD.width), y);
-    
+    // context.drawImage(imgD, x+x+x+x, y);
+    // context.drawImage(imgD, x+(imgD.width)+x+x+x, y);
+
 };
 
 // clear everything before next redraw
 function clear() {
-    context.fillStyle = 'red';
+    context.fillStyle = 'purple';
     context.fillRect(0, 0, canvas.width, canvas.height);
 }
 
